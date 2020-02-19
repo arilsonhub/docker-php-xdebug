@@ -1,0 +1,11 @@
+version: '3'
+
+services:    
+  apache:
+    build:
+      context: ./
+    container_name: php-xdebug-container
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "3000:80"
