@@ -7,10 +7,7 @@ RUN apt-get update \
   && docker-php-ext-install zip \  
   && docker-php-ext-install pdo_pgsql \      
   && chmod 777 /var/www/html \      
-  && mv /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini \
-  && apt -qy install $PHPIZE_DEPS \
   && pecl install xdebug \
-  && pecl config-set php_ini /usr/local/etc/php/php.ini \
   && docker-php-ext-enable xdebug \
   && echo "xdebug.remote_autostart=1" | tee -a /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini > /dev/null \
   && echo "xdebug.remote_enable=1" | tee -a /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini > /dev/null \
