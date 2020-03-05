@@ -13,4 +13,8 @@ RUN apt-get update \
   && echo "xdebug.remote_enable=1" | tee -a /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini > /dev/null \
   && echo "xdebug.remote_host=localhost" | tee -a /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini > /dev/null \
   && echo "xdebug.idekey=VSCODE" | tee -a /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini > /dev/null \
-  && echo "xdebug.remote_connect_back=1" | tee -a /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini > /dev/null  
+  && echo "xdebug.remote_connect_back=1" | tee -a /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini > /dev/null \
+  && export DEBIAN_FRONTEND=noninteractive \
+	&& apt-get install -y tzdata \
+	&& ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime \
+	&& dpkg-reconfigure --frontend noninteractive tzdata
