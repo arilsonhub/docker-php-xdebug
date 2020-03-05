@@ -17,4 +17,5 @@ RUN apt-get update \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get install -y tzdata \
   && ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime \
-  && dpkg-reconfigure --frontend noninteractive tzdata
+  && dpkg-reconfigure --frontend noninteractive tzdata \
+  && printf '[PHP]\ndate.timezone = "America/Sao_Paulo"\n' > /usr/local/etc/php/conf.d/tzone.ini

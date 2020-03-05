@@ -6,6 +6,8 @@ services:
       context: ./
     container_name: php-xdebug-container
     volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
       - ./:/var/www/html
     ports:
       - "3000:80"
